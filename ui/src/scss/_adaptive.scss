@@ -1,0 +1,23 @@
+@use 'sass:math';
+
+@mixin linearValue($parameter, $start, $end, $value_start, $value_end) {
+	$start: strip-unit($start);
+	$end: strip-unit($end);
+	$value_start: strip-unit($value_start);
+	$value_end: strip-unit($value_end);
+	@media (max-width: $end + px) and (min-width: $start + px) {
+		$diff: $value_end - $value_start;
+		#{$parameter}: calc(#{$value_start + px} + #{$diff} * (100vw - #{$start}px) / (#{$end} - #{$start}) );
+	}
+}
+
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return math.div($number, ($number * 0 + 1));
+    }
+    @return $number;
+}
+
+@function em($size, $base-font-size:16px) {
+    @return math.div(strip-unit($size), strip-unit($base-font-size) * 1em);
+}
