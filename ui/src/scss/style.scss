@@ -1,2 +1,42 @@
 @use 'vars';
 @use 'adaptive';
+
+.container {
+	box-sizing: content-box;
+	max-width: vars.$container_width;
+	margin: 0px auto;
+	padding: 0 vars.$container_padding;
+}
+
+.box {
+	background-color: vars.$color_boxFont;
+	padding: 15px;
+	margin: 15px 0px;
+	border-radius: 10px;
+}
+
+.roboto-regular {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 100%;
+	color: vars.$color_black;
+}
+
+.button {
+	background-color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 100%;
+	color: vars.$color_black;
+}
+
+@import 'header';
+@import 'description';
+@import 'inputbox';

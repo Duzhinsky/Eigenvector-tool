@@ -1,0 +1,10 @@
+
+.header {
+	margin: 0 10px;
+	text-align: center;
+	&__title {
+		font-size: 30px;
+		line-height: 150%;
+		color: vars.$color_black;
+	}
+}

@@ -1,0 +1,39 @@
+
+.inputbox {
+	&__title {
+		margin: 0;
+		text-align: center;
+		font-style: bold;
+		font-size: 24px;
+		line-height: 100%;
+		color: vars.$color_black;
+	}
+
+	&__matrix { 
+		&__container {
+			margin-top: 10px;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			flex-grow: 0;
+		}
+		&__cell {
+			background-color: white;
+			border: none;
+			border-radius: 3px;
+			width: 45px;
+			height: 45px;
+			text-align: center;
+		}
+	}
+
+	&__controls {
+		margin-left: 20px;
+		display: flex;
+		flex-direction: column;
+		row-gap: 5px;
+	}
+
+	
+}
