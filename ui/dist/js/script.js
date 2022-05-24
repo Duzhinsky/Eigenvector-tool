@@ -51,6 +51,21 @@ var submitButton = document.querySelector('.inputbox__btnSubmit');
 submitButton.addEventListener('click', function() {
 	var matrix = getMatrixValues(matrixInputs);
 	console.log('matrix', matrix);
+	request = $.ajax({
+		headers: {
+			"Access-Control-Allow-Origin": "*"
+		},
+        url: "localhost:8080/matirxOperations/eigenvectors/solve",
+        type: "post",
+        data: matrix,
+		success:function(response){
+          var r=JSON.parse(response);
+          console.log(r);
+        },
+		error : function(jqXHR, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+    });
 }, false);
 
 var increaseButton = document.querySelector('.inputbox__btnIncrease');
@@ -65,5 +80,10 @@ var decreaseButton = document.querySelector('.inputbox__btnDecrease');
 decreaseButton.addEventListener('click', function() {
 	if(dimension <= 1) return;
 	--dimension;
+	matrixInputs = createMatrixInputs(dimension, dimension);
+}, false);
+
+var clearButton = document.querySelector('.inputbox__btnClear');
+clearButton.addEventListener('click', function() {
 	matrixInputs = createMatrixInputs(dimension, dimension);
 }, false);
