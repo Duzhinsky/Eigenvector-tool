@@ -5,8 +5,11 @@ import ru.duzhinsky.backend.math.Polynomial;
 
 @Getter
 public class SolutionResponse {
-    private int[] characteristicPolynomial;
+    private final Double[] characteristicPolynomial;
+
     public SolutionResponse(Polynomial polynomial) {
-        characteristicPolynomial = new int[]{1,2,3};
+        var coefficients = polynomial.getCoefficients();
+        characteristicPolynomial = new Double[coefficients.size()];
+        coefficients.toArray(characteristicPolynomial);
     }
 }

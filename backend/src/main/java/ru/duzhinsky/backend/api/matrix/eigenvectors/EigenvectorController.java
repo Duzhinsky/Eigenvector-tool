@@ -13,8 +13,8 @@ import ru.duzhinsky.backend.math.Polynomial;
 @RequestMapping("/matirxOperations/eigenvectors/")
 public class EigenvectorController {
     @RequestMapping(method = RequestMethod.POST)
-    public SolutionResponse solve(@RequestBody RequestMatrix inputedMatrix) {
-        Matrix matrix = new Matrix();
+    public SolutionResponse solve(@RequestBody Double[][] inputedMatrix) {
+        Matrix matrix = new Matrix(inputedMatrix);
         CharacteristicPolynomialCalculator calculator = new LeverrierCalculator();
         Polynomial characteristicPolynomial = calculator.getCharacteristicPolynomial(matrix);
         return new SolutionResponse(characteristicPolynomial);
