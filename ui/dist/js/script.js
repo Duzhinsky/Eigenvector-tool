@@ -51,21 +51,17 @@ var submitButton = document.querySelector('.inputbox__btnSubmit');
 submitButton.addEventListener('click', function() {
 	var matrix = getMatrixValues(matrixInputs);
 	console.log('matrix', matrix);
-	request = $.ajax({
-		headers: {
-			"Access-Control-Allow-Origin": "*"
-		},
-        url: "localhost:8080/matirxOperations/eigenvectors/solve",
-        type: "post",
-        data: matrix,
-		success:function(response){
-          var r=JSON.parse(response);
-          console.log(r);
-        },
-		error : function(jqXHR, textStatus, errorThrown) {
-            alert(errorThrown);
-        }
-    });
+	console.log(matrix);
+	console.log(JSON.stringify(matrix));
+	var url = "http://localhost:8080/matirxOperations/eigenvectors/";
+	var http_request = new XMLHttpRequest();
+	http_request.onreadystatechange = function () { 
+
+	};
+	http_request.open("POST", url);
+	http_request.withCredentials = false;
+	http_request.setRequestHeader("Content-Type", "application/json");
+	http_request.send(JSON.stringify(matrix));
 }, false);
 
 var increaseButton = document.querySelector('.inputbox__btnIncrease');

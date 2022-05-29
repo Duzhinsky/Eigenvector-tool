@@ -1,15 +1,13 @@
 package ru.duzhinsky.backend.api.matrix.eigenvectors;
 
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.duzhinsky.backend.math.CharacteristicPolynomialCalculator;
 import ru.duzhinsky.backend.math.LeverrierCalculator;
 import ru.duzhinsky.backend.math.Matrix;
 import ru.duzhinsky.backend.math.Polynomial;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/matirxOperations/eigenvectors/")
 public class EigenvectorController {
     @RequestMapping(method = RequestMethod.POST)
